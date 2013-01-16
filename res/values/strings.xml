@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <string name="app_name">Bird Note</string>
+	<string name="app_name">Bird Note</string>
     <string name="menu_settings">Settings</string>
-    
-
+    <string name="title">Bird Note</string>
+    <string name="ref_guide_icon">Reference Guide</string>
+    <string name="search_icon">Search</string>
+    <string name="birds_seen_icon">Birds Seen</string>
+    <string name="wishlist_icon">Wishlist</string>
+    <string name="map_view_icon">Map View</string>
 </resources>
