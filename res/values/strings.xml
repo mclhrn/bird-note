@@ -8,4 +8,9 @@
     <string name="birds_seen_icon">Birds Seen</string>
     <string name="wishlist_icon">Wishlist</string>
     <string name="map_view_icon">Map View</string>
+    <string name="logo_img">Bird Note Logo</string>
+    <string name="icon">Icon</string>
+    <string name="size_template">Size: %d</string>
+    <string name="listSeparatorTextViewStyle">%d</string>
+    
 </resources>
