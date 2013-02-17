@@ -1,5 +1,7 @@
 package com.example.birdnote;
 
+import com.example.birdnote.R;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -45,13 +47,13 @@ public class MainActivity extends Activity implements OnClickListener {
 			startActivity(new Intent(this, ReferenceGuide.class));
 		}
 		if (v.getId() == R.id.search_icon) {
-			System.out.println("Btn 2 pressed!!");
+			startActivity(new Intent(this, Search.class));
 		}
 		if (v.getId() == R.id.birds_seen_icon) {
-			System.out.println("Btn 3 pressed!!");
+			startActivity(new Intent(this, BirdsSeen.class));
 		}
 		if (v.getId() == R.id.wishlist_icon) {
-			System.out.println("Btn 4 pressed!!");
+			startActivity(new Intent(this, Wishlist.class));
 		}
 		if (v.getId() == R.id.map_view_icon) {
 			System.out.println("Btn 5 pressed!!");

@@ -4,43 +4,10 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal|center_vertical"
-    android:gravity="center_horizontal|center_vertical|top"
+    android:gravity="center_vertical|center_horizontal"
     android:orientation="horizontal"
     android:padding="0dp"
     tools:context=".MainActivity" >
-
-    <TableRow
-        android:id="@+id/title_row"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:focusable="false"
-        android:gravity="left"
-        android:orientation="horizontal" >
-
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_span="2"
-            android:orientation="vertical" >
-
-            <TextView
-                android:id="@+id/textView1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/title"
-                android:textSize="42sp"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:id="@+id/imageView1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/header_logo" android:contentDescription="@string/logo_img"/>
-        </FrameLayout>        
-    </TableRow>
     
     <TableRow
         android:id="@+id/top_row"
@@ -57,6 +24,7 @@
             android:drawableTop="@drawable/reference_guide"
             android:focusableInTouchMode="true"
             android:gravity="center_vertical|center_horizontal|bottom"
+            android:longClickable="true"
             android:paddingBottom="5dp"
             android:paddingTop="32dp"
             android:text="@string/ref_guide_icon"
@@ -72,6 +40,7 @@
             android:drawableTop="@drawable/search"
             android:focusableInTouchMode="true"
             android:gravity="center_vertical|center_horizontal|bottom"
+            android:longClickable="true"
             android:paddingBottom="5dp"
             android:paddingTop="32dp"
             android:text="@string/search_icon"
@@ -96,6 +65,7 @@
             android:drawableTop="@drawable/birds_seen"
             android:focusableInTouchMode="true"
             android:gravity="center_vertical|center_horizontal|bottom"
+            android:longClickable="true"
             android:paddingBottom="5dp"
             android:paddingTop="32dp"
             android:text="@string/birds_seen_icon"
@@ -111,6 +81,7 @@
             android:drawableTop="@drawable/birds_to_see"
             android:focusableInTouchMode="true"
             android:gravity="center_vertical|center_horizontal|bottom"
+            android:longClickable="true"
             android:minHeight="60dip"
             android:minWidth="60dip"
             android:paddingBottom="5dp"
@@ -131,12 +102,12 @@
             android:id="@+id/map_view_icon"
             android:layout_width="130dp"
             android:layout_height="130dp"
-            android:layout_marginBottom="20dp"
             android:layout_marginRight="20dp"
             android:background="#486b14"
             android:drawableTop="@drawable/pin"
             android:focusableInTouchMode="true"
             android:gravity="center_vertical|center_horizontal|bottom"
+            android:longClickable="true"
             android:minHeight="60dip"
             android:minWidth="60dip"
             android:paddingBottom="5dp"

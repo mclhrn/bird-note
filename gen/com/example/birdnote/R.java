@@ -8,6 +8,10 @@
 package com.example.birdnote;
 
 public final class R {
+    public static final class array {
+        public static final int colors=0x7f060000;
+        public static final int planets=0x7f060001;
+    }
     public static final class attr {
         /** 
         When set to alignMargins, causes alignment to take place between the outer
@@ -216,78 +220,127 @@ containing a value of this type.
         public static final int default_gap=0x7f050000;
     }
     public static final class drawable {
-        public static final int birds_seen=0x7f020000;
-        public static final int birds_to_see=0x7f020001;
-        public static final int delete=0x7f020002;
-        public static final int hawk=0x7f020003;
-        public static final int header_logo=0x7f020004;
-        public static final int ic_launcher=0x7f020005;
-        public static final int ok=0x7f020006;
-        public static final int pin=0x7f020007;
-        public static final int reference_guide=0x7f020008;
-        public static final int search=0x7f020009;
+        public static final int action_search=0x7f020000;
+        public static final int birds_seen=0x7f020001;
+        public static final int birds_to_see=0x7f020002;
+        public static final int delete=0x7f020003;
+        public static final int hawk=0x7f020004;
+        public static final int hawk_big=0x7f020005;
+        public static final int header_logo=0x7f020006;
+        public static final int ic_launcher=0x7f020007;
+        public static final int ok=0x7f020008;
+        public static final int pin=0x7f020009;
+        public static final int reference_guide=0x7f02000a;
+        public static final int search=0x7f02000b;
     }
     public static final class id {
         public static final int alignBounds=0x7f040002;
         public static final int alignMargins=0x7f040003;
-        public static final int birds_seen_icon=0x7f04001a;
+        public static final int billColour=0x7f040037;
+        public static final int billLength=0x7f040034;
+        public static final int bill_colour=0x7f040038;
+        public static final int bill_length=0x7f040035;
+        public static final int birds_seen_icon=0x7f040017;
         public static final int bottom=0x7f040005;
-        public static final int bottomRow=0x7f04001c;
+        public static final int bottomRow=0x7f040019;
+        public static final int button1=0x7f04003d;
         public static final int center=0x7f04000c;
         public static final int center_horizontal=0x7f04000a;
         public static final int center_vertical=0x7f040008;
         public static final int clip_horizontal=0x7f04000f;
         public static final int clip_vertical=0x7f04000e;
+        public static final int crownColour=0x7f040031;
+        public static final int crown_colour=0x7f040032;
+        public static final int description=0x7f040025;
+        public static final int div_bar_1=0x7f040021;
+        public static final int div_bar_2=0x7f040022;
+        public static final int div_bar_3=0x7f040024;
+        public static final int div_bar_4=0x7f040027;
+        public static final int editText1=0x7f04001c;
         public static final int end=0x7f040011;
+        public static final int expandableListView1=0x7f040026;
         public static final int fill=0x7f04000d;
         public static final int fill_horizontal=0x7f04000b;
         public static final int fill_vertical=0x7f040009;
         public static final int horizontal=0x7f040000;
-        public static final int icon=0x7f04001e;
-        public static final int imageView1=0x7f040015;
-        public static final int label=0x7f04001f;
+        public static final int imageButton1=0x7f040029;
+        public static final int latin=0x7f040020;
         public static final int left=0x7f040006;
-        public static final int map_view_icon=0x7f04001d;
-        public static final int menu_settings=0x7f040021;
-        public static final int middle_row=0x7f040019;
-        public static final int ref_guide_icon=0x7f040017;
+        public static final int main_profile_image=0x7f040023;
+        public static final int map_view_icon=0x7f04001a;
+        public static final int menu_settings=0x7f04003e;
+        public static final int middle_row=0x7f040016;
+        public static final int name=0x7f04001f;
+        public static final int primaryColour=0x7f04002b;
+        public static final int primary_colour=0x7f04002c;
+        public static final int ref_guide_icon=0x7f040014;
         public static final int right=0x7f040007;
-        public static final int search_icon=0x7f040018;
-        public static final int size=0x7f040020;
+        public static final int search_icon=0x7f040015;
+        public static final int secondaryColour=0x7f04002e;
+        public static final int secondary_colour=0x7f04002f;
         public static final int start=0x7f040010;
         public static final int tableLayout1=0x7f040012;
-        public static final int textView1=0x7f040014;
-        public static final int title_row=0x7f040013;
+        public static final int tableRow1=0x7f04002a;
+        public static final int tableRow2=0x7f04002d;
+        public static final int tableRow3=0x7f040030;
+        public static final int tableRow4=0x7f040033;
+        public static final int tableRow5=0x7f040036;
+        public static final int tableRow6=0x7f040039;
+        public static final int tableRow7=0x7f04003c;
+        public static final int tailShape=0x7f04003a;
+        public static final int tail_shape=0x7f04003b;
+        public static final int testtextView=0x7f040028;
+        public static final int textView1=0x7f04001b;
+        public static final int textView2=0x7f04001d;
+        public static final int thumb=0x7f04001e;
         public static final int top=0x7f040004;
-        public static final int top_row=0x7f040016;
+        public static final int top_row=0x7f040013;
         public static final int vertical=0x7f040001;
-        public static final int wishlist_icon=0x7f04001b;
+        public static final int wishlist_icon=0x7f040018;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
         public static final int birds_seen=0x7f030001;
-        public static final int map_view=0x7f030002;
-        public static final int reference_guide=0x7f030003;
-        public static final int row=0x7f030004;
+        public static final int list_item=0x7f030002;
+        public static final int profile=0x7f030003;
+        public static final int reference_guide=0x7f030004;
         public static final int search=0x7f030005;
         public static final int wishlist=0x7f030006;
     }
     public static final class menu {
-        public static final int activity_main=0x7f080000;
+        public static final int activity_main=0x7f090000;
     }
     public static final class string {
-        public static final int app_name=0x7f060000;
-        public static final int birds_seen_icon=0x7f060005;
-        public static final int icon=0x7f060009;
-        public static final int listSeparatorTextViewStyle=0x7f06000b;
-        public static final int logo_img=0x7f060008;
-        public static final int map_view_icon=0x7f060007;
-        public static final int menu_settings=0x7f060001;
-        public static final int ref_guide_icon=0x7f060003;
-        public static final int search_icon=0x7f060004;
-        public static final int size_template=0x7f06000a;
-        public static final int title=0x7f060002;
-        public static final int wishlist_icon=0x7f060006;
+        public static final int app_name=0x7f070000;
+        public static final int bill_colour=0x7f070019;
+        public static final int bill_length=0x7f070018;
+        public static final int birds_seen_icon=0x7f070005;
+        public static final int birds_seen_title=0x7f070011;
+        public static final int crown_colour=0x7f070017;
+        public static final int empty=0x7f070013;
+        public static final int icon=0x7f070009;
+        public static final int image=0x7f07000c;
+        public static final int listSeparatorTextViewStyle=0x7f07000b;
+        public static final int logo_img=0x7f070008;
+        public static final int main_image=0x7f070014;
+        public static final int map_view_icon=0x7f070007;
+        public static final int menu_settings=0x7f070001;
+        /**  Search Screen Drop Down Labels  
+         */
+        public static final int primary_colour=0x7f070015;
+        public static final int ref_guide_icon=0x7f070003;
+        public static final int search=0x7f07000d;
+        public static final int search_buttom=0x7f07001b;
+        public static final int search_icon=0x7f070004;
+        public static final int search_list=0x7f07000f;
+        public static final int secondary_colour=0x7f070016;
+        public static final int size_template=0x7f07000a;
+        public static final int tail_shape=0x7f07001a;
+        public static final int test=0x7f070010;
+        public static final int title=0x7f070002;
+        public static final int toggle=0x7f07000e;
+        public static final int wishlist_icon=0x7f070006;
+        public static final int wishlist_title=0x7f070012;
     }
     public static final class style {
         /** 
@@ -311,11 +364,11 @@ containing a value of this type.
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f070000;
+        public static final int AppBaseTheme=0x7f080000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f070001;
+        public static final int AppTheme=0x7f080001;
     }
     public static final class styleable {
         /** Attributes that can be used with a GridLayout.
