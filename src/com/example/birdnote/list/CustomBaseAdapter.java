@@ -2,16 +2,15 @@ package com.example.birdnote.list;
 
 import java.util.List;
 
-import com.example.birdnote.R;
-import com.example.birdnote.model.Bird;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.birdnote.R;
+import com.example.birdnote.model.Bird;
  
 public class CustomBaseAdapter extends ArrayAdapter<Bird> {
     Context context;
@@ -84,7 +83,6 @@ public class CustomBaseAdapter extends ArrayAdapter<Bird> {
         tv.setText(bird.getName());
 
         tv = (TextView) view.findViewById(R.id.latin);
-        
         tv.setText(bird.getLatinName());
         
         /*ImageView iv = (ImageView) view.findViewById(R.id.thumb);
