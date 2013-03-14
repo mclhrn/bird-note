@@ -105,7 +105,6 @@ public class BirdsPullParser {
 			else if (currentTag.equals(BIRD_WHERE_TO_SEE)) {
 				currentBird.setWhereToSee(xmlText);
 			}
-			
 			else if (currentTag.equals(BIRD_CONSERVATION)) {
 				currentBird.setConservation(xmlText);
 			}

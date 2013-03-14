@@ -1,23 +1,11 @@
 package com.example.birdnote;
  
-import java.util.ArrayList;
-
 import com.example.birdnote.R;
 import com.example.birdnote.model.Bird;
 
 import android.app.Activity;
-import android.app.ExpandableListActivity;
-import android.content.Context;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.View.OnClickListener;
-import android.widget.BaseExpandableListAdapter;
-import android.widget.CheckedTextView;
-import android.widget.ExpandableListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class Profile extends Activity{
 

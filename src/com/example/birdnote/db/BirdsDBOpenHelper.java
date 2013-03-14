@@ -33,6 +33,11 @@ public class BirdsDBOpenHelper extends SQLiteOpenHelper {
 	public static final String BIRDS_COLUMN_BILL_COLOUR = "bill_colour_id";
 	public static final String BIRDS_COLUMN_TAIL_SHAPE = "tail_shape_id";
 	
+	// set image table name and columns
+	public static final String TABLE_IMAGES = "images";
+	public static final String IMAGE_COLUMN_ID = "image_id";
+	public static final String IMAGE_COLUMN_THUMB = "thumb";
+	public static final String IMAGE_COLUMN_MAIN_PIC = "main_pic";
 	
 	// create birds table
 	private static final String TABLE_CREATE_BIRDS = 
@@ -55,6 +60,14 @@ public class BirdsDBOpenHelper extends SQLiteOpenHelper {
 					BIRDS_COLUMN_BILL_COLOUR + " INTEGER, " +
 					BIRDS_COLUMN_TAIL_SHAPE + " INTEGER " +
 					")";
+	
+	// create images table
+		private static final String TABLE_CREATE_IMAGES = 
+				"CREATE TABLE " + TABLE_IMAGES + " (" +
+						IMAGE_COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+						IMAGE_COLUMN_THUMB + " TEXT, " +
+						IMAGE_COLUMN_MAIN_PIC + " TEXT" +
+						")";
 
 	public BirdsDBOpenHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -63,13 +76,16 @@ public class BirdsDBOpenHelper extends SQLiteOpenHelper {
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		db.execSQL(TABLE_CREATE_BIRDS);
-		Log.i(LOGTAG, "Table created!!");
+		db.execSQL(TABLE_CREATE_IMAGES);
+		Log.i(LOGTAG, "Birds Table created!!");
+		Log.i(LOGTAG, "Images Table created!!");
 	}
 	
 	// never to be called explicitly. Only on version updates
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 		db.execSQL("DROP TABLE IF EXISTS " + TABLE_BIRDS);
+		db.execSQL("DROP TABLE IF EXISTS " + TABLE_IMAGES);
 		onCreate(db);
 	}
 }

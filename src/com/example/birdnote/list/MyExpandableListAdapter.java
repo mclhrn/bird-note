@@ -1,4 +1,4 @@
-package com.example.birdnote.list;
+/*package com.example.birdnote.list;
 
 import org.json.JSONObject;
 
@@ -95,3 +95,4 @@ public class MyExpandableListAdapter extends BaseExpandableListAdapter {
 	
 
 }
+*/
