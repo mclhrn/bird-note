@@ -14,7 +14,8 @@ public class Bird implements Parcelable {
 	private String wintering_habits;
 	private String where_to_see;
 	private String conservation;
-	private long image;
+	private String image_thumb;
+	private String image_large;
 	private int primary_colour;
 	private int secondary_colour;
 	private int crown_colour;
@@ -39,7 +40,8 @@ public class Bird implements Parcelable {
          wintering_habits = in.readString();
          where_to_see = in.readString();
          conservation = in.readString();
-         image = in.readLong();
+         image_thumb = in.readString();
+         image_large = in.readString();
          primary_colour = in.readInt();
      	 secondary_colour = in.readInt();
      	 crown_colour = in.readInt();
@@ -128,12 +130,20 @@ public class Bird implements Parcelable {
 		this.conservation = conservation;
 	}
 	
-	public long getImage() {
-		return image;
+	public String getImageThumb() {
+		return image_thumb;
 	}
 
-	public void setImage(long image) {
-		this.image = image;
+	public void setImageThumb(String image_thumb) {
+		this.image_thumb = image_thumb;
+	}
+	
+	public String getImageLarge() {
+		return image_large;
+	}
+
+	public void setImageLarge(String image_large) {
+		this.image_large = image_large;
 	}
 
 	public int getPrimaryColour() {
@@ -186,7 +196,7 @@ public class Bird implements Parcelable {
 
 	@Override
 	public String toString() {
-		return name + "\n" + latin_name;
+		return name + "\n" + latin_name + "\n";
 	}
 
     @Override
@@ -208,14 +218,14 @@ public class Bird implements Parcelable {
          dest.writeString(wintering_habits);
          dest.writeString(where_to_see);
          dest.writeString(conservation);
-         dest.writeLong(image);
+         dest.writeString(image_thumb);
+         dest.writeString(image_large);
          dest.writeInt(primary_colour);
          dest.writeInt(secondary_colour);
          dest.writeInt(crown_colour);
          dest.writeInt(bill_length);
          dest.writeInt(bill_colour);
          dest.writeInt(tail_shape);
-         
     }
 
     public static final Parcelable.Creator<Bird> CREATOR =

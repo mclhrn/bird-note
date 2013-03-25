@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.birdnote.R;
@@ -85,13 +86,13 @@ public class CustomBaseAdapter extends ArrayAdapter<Bird> {
         tv = (TextView) view.findViewById(R.id.latin);
         tv.setText(bird.getLatinName());
         
-        /*ImageView iv = (ImageView) view.findViewById(R.id.thumb);
+        ImageView iv = (ImageView) view.findViewById(R.id.thumb);
         int imageResource = context.getResources().getIdentifier(
-        		bird.getImage(), "drawable", context.getPackageName());
+        		bird.getImageThumb(), "drawable", context.getPackageName());
         if (imageResource != 0) {
         	iv.setImageResource(imageResource);
         }
-        */
+        
         return view;
 	}
 }

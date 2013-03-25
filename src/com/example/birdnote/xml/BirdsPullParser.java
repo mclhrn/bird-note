@@ -28,14 +28,15 @@ public class BirdsPullParser {
 	private static final String BIRD_BREEDING = "breeding";
 	private static final String BIRD_WINTERING_HABITS = "wintering_habits";
 	private static final String BIRD_WHERE_TO_SEE = "where_to_see";
-	private static final String BIRD_CONSERVATION = "conservation";
-	private static final String BIRD_IMAGE = "image_id";
-	private static final String BIRD_PRIMARY_COLOUR = "primary_colour";
-	private static final String BIRD_SECONDARY_COLOUR = "secondary_colour";
-	private static final String BIRD_CROWN_COLOUR = "crown_colour";
-	private static final String BIRD_BILL_LENGTH = "bill_length";
-	private static final String BIRD_BILL_COLOUR = "bill_colour";
-	private static final String BIRD_TAIL_SHAPE = "tail_shape";
+	private static final String BIRD_CONSERVATION = "conservation_status";
+	private static final String BIRD_IMAGE_THUMB = "image_thumb";
+	private static final String BIRD_IMAGE_LARGE = "image_large";
+	private static final String BIRD_PRIMARY_COLOUR = "primary_colour_id";
+	private static final String BIRD_SECONDARY_COLOUR = "secondary_colour_id";
+	private static final String BIRD_CROWN_COLOUR = "crown_colour_id";
+	private static final String BIRD_BILL_LENGTH = "bill_length_id";
+	private static final String BIRD_BILL_COLOUR = "bill_colour_id";
+	private static final String BIRD_TAIL_SHAPE = "tail_shape_id";
 	
 	private Bird currentBird  = null;
 	private String currentTag = null;
@@ -100,7 +101,7 @@ public class BirdsPullParser {
 				currentBird.setBreeding(xmlText);
 			}
 			else if (currentTag.equals(BIRD_WINTERING_HABITS)) {
-				currentBird.setWhereToSee(xmlText);
+				currentBird.setWinteringHabits(xmlText);
 			}
 			else if (currentTag.equals(BIRD_WHERE_TO_SEE)) {
 				currentBird.setWhereToSee(xmlText);
@@ -108,9 +109,11 @@ public class BirdsPullParser {
 			else if (currentTag.equals(BIRD_CONSERVATION)) {
 				currentBird.setConservation(xmlText);
 			}
-			else if (currentTag.equals(BIRD_IMAGE)) {
-				Integer image = Integer.parseInt(xmlText);
-				currentBird.setImage(image);
+			else if (currentTag.equals(BIRD_IMAGE_THUMB)) {
+				currentBird.setImageThumb(xmlText);
+			}
+			else if (currentTag.equals(BIRD_IMAGE_LARGE)) {
+				currentBird.setImageLarge(xmlText);
 			}
 			else if (currentTag.equals(BIRD_PRIMARY_COLOUR)) {
 				Integer pColour = Integer.parseInt(xmlText);

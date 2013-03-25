@@ -17,11 +17,11 @@
     <string name="toggle">Toggle</string>
     <string name="search_list">Search List</string>
     <string name="test">Testing 123</string>
+    <string name="ref_guide_title">A-Z Reference Guide</string>
     <string name="birds_seen_title">My Birds Seen List</string>
     <string name="wishlist_title">My Wishlist</string>
     <string name="empty"></string>
      <string name="main_image">Main Image</string>
-   
     
     <!-- Search Screen Drop Down Labels  -->
     <string name="primary_colour">Primary Colour</string>
@@ -31,4 +31,9 @@
     <string name="bill_colour">Bill Colour</string>
     <string name="tail_shape">Tail Shape</string>
     <string name="search_buttom">Search</string>
+    
+    <!-- Menu Items  -->
+    <string name="add_to_seen">Add to Birds Seen List</string>
+    <string name="add_to_wishlist">Add to Wishlist</string>
+    <string name="delete">Remove bird from List</string>
 </resources>
