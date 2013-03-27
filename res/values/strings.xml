@@ -21,7 +21,7 @@
     <string name="birds_seen_title">My Birds Seen List</string>
     <string name="wishlist_title">My Wishlist</string>
     <string name="empty"></string>
-     <string name="main_image">Main Image</string>
+    <string name="main_image">Main Image</string>
     
     <!-- Search Screen Drop Down Labels  -->
     <string name="primary_colour">Primary Colour</string>

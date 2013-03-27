@@ -57,10 +57,16 @@ public class BirdsDBOpenHelper extends SQLiteOpenHelper {
 					BIRDS_COLUMN_TAIL_SHAPE + " INTEGER " +
 					")";
 	
+	public static final String BIRDS_COLUMN_LATITUDE = "latitude";
+	public static final String BIRDS_COLUMN_LONGITUDE = "longitude";
+	
 	public static final String TABLE_BIRDS_SEEN = "birdsSeen";
 	private static final String TABLE_CREATE_BIRDS_SEEN = 
 			"CREATE TABLE " + TABLE_BIRDS_SEEN + " (" +
-					BIRDS_COLUMN_ID + " INTEGER PRIMARY KEY)";
+					BIRDS_COLUMN_ID + " INTEGER PRIMARY KEY, " +
+					BIRDS_COLUMN_LATITUDE + " REAL, " +
+					BIRDS_COLUMN_LONGITUDE + " REAL " +
+					")";
 	
 	public static final String TABLE_BIRDS_WISHLIST = "wishList";
 	private static final String TABLE_CREATE_BIRDS_WISHLIST = 

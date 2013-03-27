@@ -131,11 +131,14 @@ public class BirdsDataSource {
 	}
 
 	// adds a bird to the birdsSeen table
-	public boolean addToBirdsSeen(Bird bird) {
+	public boolean addToBirdsSeen(Bird bird, double lat, double lng) {
 		//Log.i(LOGTAG, bird.toString());
 		ContentValues values = new ContentValues();
 		
 		values.put(BirdsDBOpenHelper.BIRDS_COLUMN_ID, bird.getId());
+		values.put(BirdsDBOpenHelper.BIRDS_COLUMN_LATITUDE, lat);
+		values.put(BirdsDBOpenHelper.BIRDS_COLUMN_LONGITUDE, lng);
+		
 		long result = database.insert(BirdsDBOpenHelper.TABLE_BIRDS_SEEN, null, values);
 				
 		return (result != -1);
@@ -161,6 +164,20 @@ public class BirdsDataSource {
 		List<Bird> birds = cursorToList(cursor);
 		return birds;
 	}
+	
+	// retrieves all birds from birdsSeen table
+//	public List<Bird> findBirdsSeenForMap() {
+//		String query = "SELECT birds.name, birdsSeen.latitude, birdsSeen.longitude FROM " +
+//			"birds, birdsSeen JOIN birdsSeen ON " +
+//			"birds.bird_id = birdsSeen.bird_id";
+//		Cursor cursor = database.rawQuery(query, null);
+//		Log.i(LOGTAG, "Returned " + cursor.getCount() + " rows from birds for map table");
+//	
+//		List<Bird> birds = cursorToList(cursor);
+//		return birds;
+//	}
+	
+	
 	
 	// adds a bird to the wishList table
 	public boolean addToWishList(Bird bird) {

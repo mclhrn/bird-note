@@ -56,7 +56,7 @@ public class MainActivity extends Activity implements OnClickListener {
 			startActivity(new Intent(this, Wishlist.class));
 		}
 		if (v.getId() == R.id.map_view_icon) {
-			System.out.println("Btn 5 pressed!!");
+			startActivity(new Intent(this, Location.class));
 		}
 	}
 }
