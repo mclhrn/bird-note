@@ -13,6 +13,8 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -22,6 +24,9 @@ public class BirdsSeen extends ListActivity {
 	
 	private List<Bird> birds;
 	boolean isBirdsSeen;
+	boolean seenAtoZ = false;
+	ArrayAdapter<Bird> adapter;
+	EditText inputSearch;
 	
 	// create reference to database
 	BirdsDataSource datasource;
@@ -29,6 +34,8 @@ public class BirdsSeen extends ListActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.birds_seen);
+		
+		inputSearch = (EditText) findViewById(R.id.seen_input_search);
 		
 		// open connection to db
 		datasource = new BirdsDataSource(this);
@@ -42,14 +49,27 @@ public class BirdsSeen extends ListActivity {
 		
 		isBirdsSeen = true;
 		
-		refreshDisplay();
+		ImageButton atoz = (ImageButton) findViewById(R.id.seen_atoz);
+		atoz.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				if (!seenAtoZ) {
+					birds = datasource.seenAtoZ();
+					refreshDisplay();
+					seenAtoZ = true;
+				} 
+				else {
+					birds = datasource.findBirdsSeen();
+					refreshDisplay();
+					seenAtoZ = false;
+				}
+			}
+		});
 		
-		ArrayAdapter<Bird> adapter = new CustomBaseAdapter(this, birds);
-		setListAdapter(adapter);
+		refreshDisplay();
 	}
 	
 	public void refreshDisplay() {
-		ArrayAdapter<Bird> adapter = new CustomBaseAdapter(this, birds);
+		adapter = new CustomBaseAdapter(this, birds);
 		setListAdapter(adapter);
 	}
 	
@@ -93,7 +113,7 @@ public class BirdsSeen extends ListActivity {
 
 		Toast toast = Toast.makeText(this,
 				"There are no birds on this list yet",
-				Toast.LENGTH_LONG);
+				Toast.LENGTH_SHORT);
 		toast.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL,
 				0, 0);
 		toast.show();

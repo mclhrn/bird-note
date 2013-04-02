@@ -2,14 +2,8 @@ package com.example.birdnote;
 
 import com.example.birdnote.R;
 import com.example.birdnote.db.BirdsDataSource;
-import com.example.birdnote.listeners.LocationResultListener;
 import com.example.birdnote.model.Bird;
-import com.example.birdnote.services.LocationServices;
-//import com.example.birdnote.services.MyLocation;
-//import com.example.birdnote.services.MyLocation.LocationResult;
-
 import android.app.Activity;
-import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -19,16 +13,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Profile extends Activity implements LocationResultListener{
+public class Profile extends Activity {
 
-	private static final String LOGTAG = "Birds";
-	private LocationServices mLocationService;
 	Bird bird;
 	BirdsDataSource datasource;
 	boolean isBirdsSeen;
 	boolean isWishlist;
-	double lat;
-	double lng;
+
+	private static final String LOGTAG = "Birds";
 	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -44,9 +36,6 @@ public class Profile extends Activity implements LocationResultListener{
 		
 		datasource = new BirdsDataSource(this);
 		datasource.open();
-		
-		mLocationService = new LocationServices();
-        mLocationService.getLocation(this, this);
 	}
 	
 	protected void onResume() {
@@ -97,11 +86,13 @@ public class Profile extends Activity implements LocationResultListener{
         }
 	}
 	
-	@Override
-	public void onLocationResultAvailable(Location location) {
-		lat = location.getLatitude();
-		lng = location.getLongitude();
-	}
+//	@Override
+//	public void onLocationResultAvailable(Location location) {
+//		lat = location.getLatitude();
+//		lng = location.getLongitude();
+//	}
+	
+	
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -116,34 +107,17 @@ public class Profile extends Activity implements LocationResultListener{
 		
 		return true;
 	}
-
+	
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.add_to_seen:
-			
-			
-			
-			
-			
-			
-//			LocationResult locationResult = new LocationResult(){
-//			    @Override
-//			    public void gotLocation(Location location){
-//			    	System.out.println(location.getLatitude());
-//			    	System.out.println(location.getLongitude());
-//			    	lat = location.getLatitude();
-//			    	lng = location.getLongitude();
-//			    }
-//			};
-//			MyLocation myLocation = new MyLocation();
-//			myLocation.getLocation(this, locationResult);
-			System.out.println(lat);
-	    	System.out.println(lng);
-			if (datasource.addToBirdsSeen(bird, lat, lng)) {
+			System.out.println(MainActivity.LAT);
+	    	System.out.println(MainActivity.LNG);
+			if (datasource.addToBirdsSeen(bird, MainActivity.LAT, MainActivity.LNG)) {
 				Log.i(LOGTAG, "Bird added");
 				Toast toast = Toast.makeText(this, bird.getName()
-						+ " added to Birds Seen List", Toast.LENGTH_LONG);
+						+ " added to Birds Seen List", Toast.LENGTH_SHORT);
 				toast.setGravity(Gravity.CENTER_VERTICAL
 						| Gravity.CENTER_HORIZONTAL, 0, 0);
 				toast.show();
@@ -155,7 +129,7 @@ public class Profile extends Activity implements LocationResultListener{
 			if (datasource.addToWishList(bird)) {
 				Log.i(LOGTAG, "Bird added");
 				Toast toast = Toast.makeText(this, bird.getName()
-						+ " added to Wishlist", Toast.LENGTH_LONG);
+						+ " added to Wishlist", Toast.LENGTH_SHORT);
 				toast.setGravity(Gravity.CENTER_VERTICAL
 						| Gravity.CENTER_HORIZONTAL, 0, 0);
 				toast.show();
@@ -168,7 +142,7 @@ public class Profile extends Activity implements LocationResultListener{
 				if (datasource.removeFromBirdsSeen(bird)) {
 					setResult(-1);
 					Toast toast = Toast.makeText(this, bird.getName()
-							+ " removed from List", Toast.LENGTH_LONG);
+							+ " removed from List", Toast.LENGTH_SHORT);
 					toast.setGravity(Gravity.CENTER_VERTICAL
 							| Gravity.CENTER_HORIZONTAL, 0, 0);
 					toast.show();
@@ -178,7 +152,7 @@ public class Profile extends Activity implements LocationResultListener{
 				if (datasource.removeFromWishList(bird)) {
 					setResult(-1);
 					Toast toast = Toast.makeText(this, bird.getName()
-							+ " removed from List", Toast.LENGTH_LONG);
+							+ " removed from List", Toast.LENGTH_SHORT);
 					toast.setGravity(Gravity.CENTER_VERTICAL
 							| Gravity.CENTER_HORIZONTAL, 0, 0);
 					toast.show();

@@ -1,21 +1,24 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="#FFFFFF" >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
-        <TextView
-            android:id="@+id/textView1"
+        <ImageButton
+            android:id="@+id/wish_atoz"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingBottom="14dp"
+            android:paddingBottom="10dp"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
-            android:paddingTop="14dp"
-            android:text="@string/search" />
+            android:paddingTop="18dp"
+            android:background="#ffffff"
+            android:src="@drawable/atoz" 
+            android:contentDescription="@string/atoz"/>
 
         <EditText
             android:id="@+id/editText1"

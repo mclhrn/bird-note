@@ -11,7 +11,7 @@ public class BirdsDBOpenHelper extends SQLiteOpenHelper {
 	
 	// set db name and version
 	private static final String DATABASE_NAME = "BirdNote.db";
-	private static final int DATABASE_VERSION = 4;
+	private static final int DATABASE_VERSION = 5;
 	
 	// set birds table name and columns
 	public static final String TABLE_BIRDS = "birds";
@@ -57,10 +57,11 @@ public class BirdsDBOpenHelper extends SQLiteOpenHelper {
 					BIRDS_COLUMN_TAIL_SHAPE + " INTEGER " +
 					")";
 	
+	// birds seen table name and columns
+	public static final String TABLE_BIRDS_SEEN = "birdsSeen";
 	public static final String BIRDS_COLUMN_LATITUDE = "latitude";
 	public static final String BIRDS_COLUMN_LONGITUDE = "longitude";
 	
-	public static final String TABLE_BIRDS_SEEN = "birdsSeen";
 	private static final String TABLE_CREATE_BIRDS_SEEN = 
 			"CREATE TABLE " + TABLE_BIRDS_SEEN + " (" +
 					BIRDS_COLUMN_ID + " INTEGER PRIMARY KEY, " +
@@ -68,23 +69,62 @@ public class BirdsDBOpenHelper extends SQLiteOpenHelper {
 					BIRDS_COLUMN_LONGITUDE + " REAL " +
 					")";
 	
+	// wishlist table name and columns
 	public static final String TABLE_BIRDS_WISHLIST = "wishList";
+	
 	private static final String TABLE_CREATE_BIRDS_WISHLIST = 
 			"CREATE TABLE " + TABLE_BIRDS_WISHLIST + " (" +
 					BIRDS_COLUMN_ID + " INTEGER PRIMARY KEY)";
 
+	// colour table name and columns
+	public static final String TABLE_COLOUR = "colour_table";
+	public static final String COLOUR_COLUMN_ID = "colour_id";
+	public static final String COLOUR_COLUMN_COLOUR = "colour";
+	
+	private static final String TABLE_CREATE_COLOUR = 
+			"CREATE TABLE " + TABLE_COLOUR + " (" +
+					COLOUR_COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+					COLOUR_COLUMN_COLOUR + " TEXT)";
+	
+	// bill length table name and columns
+	public static final String TABLE_BILL_LENGTH = "bill_length_table";
+	public static final String BILL_LENGTH_COLUMN_ID = "length_id";
+	public static final String BILL_LENGTH_COLUMN_LENGTH = "length";
+	
+	private static final String TABLE_CREATE_BILL_LENGTH = 
+			"CREATE TABLE " + TABLE_BILL_LENGTH + " (" +
+					BILL_LENGTH_COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+					BILL_LENGTH_COLUMN_LENGTH + " TEXT)";
+	
+	// tail shape table name and columns
+	public static final String TABLE_TAIL_SHAPE = "tail_shape_table";
+	public static final String TAIL_SHAPE_COLUMN_ID = "shape_id";
+	public static final String TAIL_SHAPE_COLUMN_SHAPE = "shape";
+	
+	private static final String TABLE_CREATE_TAIL_SHAPE = 
+			"CREATE TABLE " + TABLE_TAIL_SHAPE + " (" +
+					TAIL_SHAPE_COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+					TAIL_SHAPE_COLUMN_SHAPE + " TEXT)";
+		
 	public BirdsDBOpenHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
 	}
-
+	
+	// create tables
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		db.execSQL(TABLE_CREATE_BIRDS);
 		db.execSQL(TABLE_CREATE_BIRDS_SEEN);
 		db.execSQL(TABLE_CREATE_BIRDS_WISHLIST);
+		db.execSQL(TABLE_CREATE_COLOUR);
+		db.execSQL(TABLE_CREATE_BILL_LENGTH);
+		db.execSQL(TABLE_CREATE_TAIL_SHAPE);
 		Log.i(LOGTAG, "Birds Table created!!");
 		Log.i(LOGTAG, "Birds Seen Table created!!");
 		Log.i(LOGTAG, "Wishlist Table created!!");
+		Log.i(LOGTAG, "Colour Table created!!");
+		Log.i(LOGTAG, "Bill Length Table created!!");
+		Log.i(LOGTAG, "Tail Shape Table created!!");
 	}
 	
 	// never to be called explicitly. Only on version updates

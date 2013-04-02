@@ -8,10 +8,6 @@
 package com.example.birdnote;
 
 public final class R {
-    public static final class array {
-        public static final int colors=0x7f070000;
-        public static final int planets=0x7f070001;
-    }
     public static final class attr {
         /** <p>Must be a floating point value, such as "<code>1.2</code>".
 <p>This may also be a reference to a resource (in the form
@@ -136,117 +132,126 @@ containing a value of this type.
         public static final int action_search=0x7f020000;
         public static final int arctictern=0x7f020001;
         public static final int arcticternthumb=0x7f020002;
-        public static final int baelericshearwater=0x7f020003;
-        public static final int baelericshearwaterthumb=0x7f020004;
-        public static final int barnaclegoose=0x7f020005;
-        public static final int barnaclegoosethumb=0x7f020006;
-        public static final int barnowl=0x7f020007;
-        public static final int barnowlthumb=0x7f020008;
-        public static final int bartailedgodwit=0x7f020009;
-        public static final int bartailedgodwitthumb=0x7f02000a;
-        public static final int beangoose=0x7f02000b;
-        public static final int beangoosethumb=0x7f02000c;
-        public static final int bewicksswan=0x7f02000d;
-        public static final int bewicksswanthumb=0x7f02000e;
-        public static final int birds_seen=0x7f02000f;
-        public static final int birds_to_see=0x7f020010;
-        public static final int blackbird=0x7f020011;
-        public static final int blackbirdthumb=0x7f020012;
-        public static final int blackcap=0x7f020013;
-        public static final int blackcapthumb=0x7f020014;
-        public static final int blackguillemot=0x7f020015;
-        public static final int blackguillemotthumb=0x7f020016;
-        public static final int blackheadedgull=0x7f020017;
-        public static final int blackheadedgullthumb=0x7f020018;
-        public static final int blackneckedgrebe=0x7f020019;
-        public static final int blackneckedgrebethumb=0x7f02001a;
-        public static final int blackredstart=0x7f02001b;
-        public static final int blackredstartthumb=0x7f02001c;
-        public static final int blacktailedgodwit=0x7f02001d;
-        public static final int blacktailedgodwitthumb=0x7f02001e;
-        public static final int blackthroateddiver=0x7f02001f;
-        public static final int blackthroateddiverthumb=0x7f020020;
-        public static final int bluetit=0x7f020021;
-        public static final int bluetitthumb=0x7f020022;
-        public static final int brambling=0x7f020023;
-        public static final int bramblingthumb=0x7f020024;
-        public static final int brentgoosedarkbellied=0x7f020025;
-        public static final int brentgoosedarkbelliedthumb=0x7f020026;
-        public static final int brentgooselightbellied=0x7f020027;
-        public static final int brentgooselightbelliedthumb=0x7f020028;
-        public static final int buffbreastedsandpiper=0x7f020029;
-        public static final int buffbreastedsandpiperthumb=0x7f02002a;
-        public static final int bullfinch=0x7f02002b;
-        public static final int bullfinchthumb=0x7f02002c;
-        public static final int buzzard=0x7f02002d;
-        public static final int buzzardthumb=0x7f02002e;
-        public static final int delete=0x7f02002f;
-        public static final int hawk=0x7f020030;
-        public static final int hawk_big=0x7f020031;
-        public static final int header_logo=0x7f020032;
-        public static final int ic_launcher=0x7f020033;
-        public static final int ok=0x7f020034;
-        public static final int pin=0x7f020035;
-        public static final int reference_guide=0x7f020036;
-        public static final int search=0x7f020037;
+        public static final int atoz=0x7f020003;
+        public static final int baelericshearwater=0x7f020004;
+        public static final int baelericshearwaterthumb=0x7f020005;
+        public static final int barnaclegoose=0x7f020006;
+        public static final int barnaclegoosethumb=0x7f020007;
+        public static final int barnowl=0x7f020008;
+        public static final int barnowlthumb=0x7f020009;
+        public static final int bartailedgodwit=0x7f02000a;
+        public static final int bartailedgodwitthumb=0x7f02000b;
+        public static final int beangoose=0x7f02000c;
+        public static final int beangoosethumb=0x7f02000d;
+        public static final int bewicksswan=0x7f02000e;
+        public static final int bewicksswanthumb=0x7f02000f;
+        public static final int birds_seen=0x7f020010;
+        public static final int birds_to_see=0x7f020011;
+        public static final int blackbird=0x7f020012;
+        public static final int blackbirdthumb=0x7f020013;
+        public static final int blackcap=0x7f020014;
+        public static final int blackcapthumb=0x7f020015;
+        public static final int blackguillemot=0x7f020016;
+        public static final int blackguillemotthumb=0x7f020017;
+        public static final int blackheadedgull=0x7f020018;
+        public static final int blackheadedgullthumb=0x7f020019;
+        public static final int blackneckedgrebe=0x7f02001a;
+        public static final int blackneckedgrebethumb=0x7f02001b;
+        public static final int blackredstart=0x7f02001c;
+        public static final int blackredstartthumb=0x7f02001d;
+        public static final int blacktailedgodwit=0x7f02001e;
+        public static final int blacktailedgodwitthumb=0x7f02001f;
+        public static final int blackthroateddiver=0x7f020020;
+        public static final int blackthroateddiverthumb=0x7f020021;
+        public static final int bluetit=0x7f020022;
+        public static final int bluetitthumb=0x7f020023;
+        public static final int brambling=0x7f020024;
+        public static final int bramblingthumb=0x7f020025;
+        public static final int brentgoosedarkbellied=0x7f020026;
+        public static final int brentgoosedarkbelliedthumb=0x7f020027;
+        public static final int brentgooselightbellied=0x7f020028;
+        public static final int brentgooselightbelliedthumb=0x7f020029;
+        public static final int buffbreastedsandpiper=0x7f02002a;
+        public static final int buffbreastedsandpiperthumb=0x7f02002b;
+        public static final int bullfinch=0x7f02002c;
+        public static final int bullfinchthumb=0x7f02002d;
+        public static final int buzzard=0x7f02002e;
+        public static final int buzzardthumb=0x7f02002f;
+        public static final int delete=0x7f020030;
+        public static final int hawk=0x7f020031;
+        public static final int hawk_big=0x7f020032;
+        public static final int header_logo=0x7f020033;
+        public static final int ic_launcher=0x7f020034;
+        public static final int ok=0x7f020035;
+        public static final int pin=0x7f020036;
+        public static final int reference_guide=0x7f020037;
+        public static final int search=0x7f020038;
     }
     public static final class id {
-        public static final int add_to_seen=0x7f050035;
-        public static final int add_to_wishlist=0x7f050036;
-        public static final int billColour=0x7f05002e;
-        public static final int billLength=0x7f05002b;
-        public static final int bill_colour=0x7f05002f;
-        public static final int bill_length=0x7f05002c;
-        public static final int birds_seen_icon=0x7f05000a;
-        public static final int breeding=0x7f05001c;
-        public static final int button1=0x7f050034;
-        public static final int childImage=0x7f050010;
-        public static final int conservation=0x7f05001f;
-        public static final int crownColour=0x7f050028;
-        public static final int crown_colour=0x7f050029;
-        public static final int delete=0x7f050037;
-        public static final int diet=0x7f05001b;
-        public static final int div_bar_1=0x7f050015;
-        public static final int div_bar_2=0x7f050016;
-        public static final int div_bar_3=0x7f050018;
-        public static final int div_bar_4=0x7f050020;
-        public static final int editText1=0x7f05000e;
+        public static final int add_to_seen=0x7f05003d;
+        public static final int add_to_wishlist=0x7f05003e;
+        public static final int billColour=0x7f050031;
+        public static final int billLength=0x7f05002e;
+        public static final int bill_colour=0x7f050032;
+        public static final int bill_length=0x7f05002f;
+        public static final int birds_seen_icon=0x7f05000e;
+        public static final int breeding=0x7f050020;
+        public static final int childImage=0x7f050015;
+        public static final int conservation=0x7f050023;
+        public static final int crownColour=0x7f05002b;
+        public static final int crown_colour=0x7f05002c;
+        public static final int delete=0x7f05003f;
+        public static final int diet=0x7f05001f;
+        public static final int div_bar_1=0x7f05001a;
+        public static final int div_bar_2=0x7f050009;
+        public static final int div_bar_3=0x7f05001c;
+        public static final int div_bar_4=0x7f050024;
+        public static final int editText1=0x7f05003c;
+        public static final int editText2=0x7f050039;
         public static final int hybrid=0x7f050004;
-        public static final int identification=0x7f05001a;
-        public static final int latin=0x7f050013;
-        public static final int main_profile_image=0x7f050017;
-        public static final int map=0x7f050014;
-        public static final int map_view_icon=0x7f05000c;
-        public static final int middle_row=0x7f050009;
-        public static final int name=0x7f050012;
+        public static final int identification=0x7f05001e;
+        public static final int latin=0x7f050018;
+        public static final int main_profile_image=0x7f05001b;
+        public static final int map=0x7f050019;
+        public static final int map_view_icon=0x7f050011;
+        public static final int middle_row=0x7f05000d;
+        public static final int name=0x7f050017;
         public static final int none=0x7f050000;
         public static final int normal=0x7f050001;
-        public static final int primaryColour=0x7f050022;
-        public static final int primary_colour=0x7f050023;
-        public static final int ref_guide_icon=0x7f050007;
+        public static final int primaryColour=0x7f050027;
+        public static final int primary_colour=0x7f050028;
+        public static final int ref_atoz=0x7f050025;
+        public static final int ref_guide_icon=0x7f05000b;
+        public static final int ref_input_search=0x7f050026;
         public static final int satellite=0x7f050002;
-        public static final int search_icon=0x7f050008;
-        public static final int secondaryColour=0x7f050025;
-        public static final int secondary_colour=0x7f050026;
-        public static final int status=0x7f050019;
+        public static final int search_atoz=0x7f050038;
+        public static final int search_icon=0x7f05000c;
+        public static final int secondaryColour=0x7f050029;
+        public static final int secondary_colour=0x7f05002a;
+        public static final int seen_atoz=0x7f050012;
+        public static final int seen_input_search=0x7f050013;
+        public static final int status=0x7f05001d;
+        public static final int submit_search=0x7f050037;
         public static final int tableLayout1=0x7f050005;
-        public static final int tableRow1=0x7f050021;
-        public static final int tableRow2=0x7f050024;
-        public static final int tableRow3=0x7f050027;
-        public static final int tableRow4=0x7f05002a;
-        public static final int tableRow5=0x7f05002d;
-        public static final int tableRow6=0x7f050030;
-        public static final int tableRow7=0x7f050033;
-        public static final int tailShape=0x7f050031;
-        public static final int tail_shape=0x7f050032;
+        public static final int tableRow1=0x7f050006;
+        public static final int tableRow2=0x7f050008;
+        public static final int tableRow3=0x7f050010;
+        public static final int tableRow4=0x7f05002d;
+        public static final int tableRow5=0x7f050030;
+        public static final int tableRow6=0x7f050033;
+        public static final int tableRow7=0x7f050036;
+        public static final int tailShape=0x7f050034;
+        public static final int tail_shape=0x7f050035;
         public static final int terrain=0x7f050003;
-        public static final int textView1=0x7f05000d;
-        public static final int textView2=0x7f05000f;
-        public static final int thumb=0x7f050011;
-        public static final int top_row=0x7f050006;
-        public static final int where_to_see=0x7f05001e;
-        public static final int wintering_habits=0x7f05001d;
-        public static final int wishlist_icon=0x7f05000b;
+        public static final int textView1=0x7f050007;
+        public static final int textView2=0x7f050014;
+        public static final int textView3=0x7f05003a;
+        public static final int thumb=0x7f050016;
+        public static final int top_row=0x7f05000a;
+        public static final int where_to_see=0x7f050022;
+        public static final int wintering_habits=0x7f050021;
+        public static final int wish_atoz=0x7f05003b;
+        public static final int wishlist_icon=0x7f05000f;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -258,11 +263,14 @@ containing a value of this type.
         public static final int profile=0x7f030006;
         public static final int reference_guide=0x7f030007;
         public static final int search=0x7f030008;
-        public static final int wishlist=0x7f030009;
+        public static final int search_results=0x7f030009;
+        public static final int spinner_dropdown_item=0x7f03000a;
+        public static final int spinner_item=0x7f03000b;
+        public static final int wishlist=0x7f03000c;
     }
     public static final class menu {
-        public static final int activity_main=0x7f090000;
-        public static final int profile_menu=0x7f090001;
+        public static final int activity_main=0x7f080000;
+        public static final int profile_menu=0x7f080001;
     }
     public static final class raw {
         public static final int birds=0x7f040000;
@@ -270,9 +278,10 @@ containing a value of this type.
     public static final class string {
         /**  Menu Items  
          */
-        public static final int add_to_seen=0x7f06002e;
-        public static final int add_to_wishlist=0x7f06002f;
+        public static final int add_to_seen=0x7f060030;
+        public static final int add_to_wishlist=0x7f060031;
         public static final int app_name=0x7f060011;
+        public static final int atoz=0x7f060028;
         /**   Title for notification shown when GooglePlayServices is unavailable [CHAR LIMIT=70] 
          */
         public static final int auth_client_availability_notification_title=0x7f06000e;
@@ -282,8 +291,8 @@ containing a value of this type.
         /**   Requested by string saying which app requested the notification. [CHAR LIMIT=42] 
          */
         public static final int auth_client_requested_by_msg=0x7f060010;
-        public static final int bill_colour=0x7f06002b;
-        public static final int bill_length=0x7f06002a;
+        public static final int bill_colour=0x7f06002d;
+        public static final int bill_length=0x7f06002c;
         public static final int birds_seen_icon=0x7f060016;
         public static final int birds_seen_title=0x7f060023;
         /**  Button in confirmation dialog to enable Google Play services.  Clicking it
@@ -339,28 +348,29 @@ containing a value of this type.
         find the service-side assets. [CHAR LIMIT=25] 
          */
         public static final int common_signin_button_text_long=0x7f06000d;
-        public static final int crown_colour=0x7f060029;
-        public static final int delete=0x7f060030;
-        public static final int empty=0x7f060025;
+        public static final int crown_colour=0x7f06002b;
+        public static final int delete=0x7f060032;
+        public static final int empty=0x7f060026;
         public static final int icon=0x7f06001a;
         public static final int image=0x7f06001d;
         public static final int listSeparatorTextViewStyle=0x7f06001c;
         public static final int logo_img=0x7f060019;
-        public static final int main_image=0x7f060026;
+        public static final int main_image=0x7f060027;
         public static final int map_view_icon=0x7f060018;
         public static final int menu_settings=0x7f060012;
         /**  Search Screen Drop Down Labels  
          */
-        public static final int primary_colour=0x7f060027;
+        public static final int primary_colour=0x7f060029;
         public static final int ref_guide_icon=0x7f060014;
         public static final int ref_guide_title=0x7f060022;
         public static final int search=0x7f06001e;
-        public static final int search_buttom=0x7f06002d;
+        public static final int search_buttom=0x7f06002f;
         public static final int search_icon=0x7f060015;
         public static final int search_list=0x7f060020;
-        public static final int secondary_colour=0x7f060028;
+        public static final int search_results_title=0x7f060025;
+        public static final int secondary_colour=0x7f06002a;
         public static final int size_template=0x7f06001b;
-        public static final int tail_shape=0x7f06002c;
+        public static final int tail_shape=0x7f06002e;
         public static final int test=0x7f060021;
         public static final int title=0x7f060013;
         public static final int toggle=0x7f06001f;
@@ -389,11 +399,11 @@ containing a value of this type.
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f080000;
+        public static final int AppBaseTheme=0x7f070000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f080001;
+        public static final int AppTheme=0x7f070001;
     }
     public static final class styleable {
         /** Attributes that can be used with a MapAttrs.

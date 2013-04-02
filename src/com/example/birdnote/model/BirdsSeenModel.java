@@ -41,7 +41,7 @@ public class BirdsSeenModel {
 
 	@Override
 	public String toString() {
-		return name + "\n" + latitude + "\n" + longitude;
+		return id + "\n" + latitude + "\n" + longitude;
 	}
 
 }

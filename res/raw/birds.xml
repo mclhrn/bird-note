@@ -384,7 +384,7 @@
     <bill_colour_id>7</bill_colour_id>
     <bill_length_id>6</bill_length_id>
     <breeding>Does not breed in Ireland.andBuff-breasted Sandpipers breed in the extreme north of Alaska and Canada.</breeding>
-    <conservation_status>Green-listedandin Ireland. The European population is considered to be Secure.</conservation_status>
+    <conservation_status>Green-listed in Ireland. The European population is considered to be Secure.</conservation_status>
     <crown_colour_id>6</crown_colour_id>
     <diet>Mainly worms and other insects.</diet>
     <id>19</id>
@@ -397,14 +397,14 @@
     <secondary_colour_id>4</secondary_colour_id>
     <status>A scarce passage migrant to the south and west coasts from July to October.</status>
     <tail_shape_id>4</tail_shape_id>
-    <where_to_see>Where to see:andTacumshin Lake in County Wexford is one of the most reliable sites for Buff-breasted Sandpipers in Ireland and even Europe. Up to a dozen individuals have been recorded and andone or two individuals are usually present from late August to October.</where_to_see>
-    <wintering_habits>Wintering:andOn the Pampas of northern Argentina, Paraguay and Brazil.and</wintering_habits>
+    <where_to_see>Tacumshin Lake in County Wexford is one of the most reliable sites for Buff-breasted Sandpipers in Ireland and even Europe. Up to a dozen individuals have been recorded and andone or two individuals are usually present from late August to October.</where_to_see>
+    <wintering_habits>On the Pampas of northern Argentina, Paraguay and Brazil</wintering_habits>
   </bird>
   <bird>
     <bill_colour_id>8</bill_colour_id>
     <bill_length_id>5</bill_length_id>
     <breeding>Breeds throughout Ireland, usually in hedgerows and deciduous woodland. . </breeding>
-    <conservation_status>Green-listedandin Ireland. The European population is considered to be Secure.</conservation_status>
+    <conservation_status>Green-listed in Ireland. The European population is considered to be Secure.</conservation_status>
     <crown_colour_id>7</crown_colour_id>
     <diet>Feeds mainly on the buds of native trees (Oak, Cherry, Hawthorn), as well as seeds and berries. </diet>
     <id>20</id>
@@ -417,7 +417,7 @@
     <secondary_colour_id>7</secondary_colour_id>
     <status>A scarce passage migrant to the south and west coasts from July to October.</status>
     <tail_shape_id>2</tail_shape_id>
-    <where_to_see>Where to see:andTacumshin Lake in County Wexford is one of the most reliable sites for Buff-breasted Sandpipers in Ireland and even Europe. Up to a dozen individuals have been recorded and andone or two individuals are usually present from late August to October.</where_to_see>
+    <where_to_see>Common and widespread throughout Ireland.</where_to_see>
     <wintering_habits>Widespread, especially in gardens.</wintering_habits>
   </bird>
   <bird>

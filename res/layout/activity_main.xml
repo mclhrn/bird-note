@@ -7,7 +7,40 @@
     android:gravity="center_vertical|center_horizontal"
     android:orientation="horizontal"
     android:padding="0dp"
+    android:background="#FFFFFF"
     tools:context=".MainActivity" >
+
+    <TableRow
+        android:id="@+id/tableRow1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_span="2"
+            android:text="@string/title"
+            android:textSize="38sp"
+            android:textStyle="bold"
+            android:drawableRight="@drawable/header_logo" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/div_bar_2"
+            android:layout_width="match_parent"
+            android:layout_span="2"
+            android:layout_height="1dp"
+            android:layout_marginBottom="20dp"
+            android:background="#1d1e24"
+            android:text="@string/empty" />
+
+    </TableRow>
 
     <TableRow
         android:id="@+id/top_row"
@@ -22,12 +55,9 @@
             android:layout_marginRight="20dp"
             android:background="#e19132"
             android:drawableTop="@drawable/reference_guide"
-            android:focusableInTouchMode="true"
             android:gravity="center_vertical|center_horizontal|bottom"
-            android:longClickable="false"
             android:paddingBottom="5dp"
             android:paddingTop="32dp"
-            android:selectAllOnFocus="false"
             android:text="@string/ref_guide_icon"
             android:textColor="#ffffff"
             android:textSize="16sp"
@@ -39,9 +69,7 @@
             android:layout_height="130dp"
             android:background="#1d1e24"
             android:drawableTop="@drawable/search"
-            android:focusableInTouchMode="true"
             android:gravity="center_vertical|center_horizontal|bottom"
-            android:longClickable="true"
             android:paddingBottom="5dp"
             android:paddingTop="32dp"
             android:text="@string/search_icon"
@@ -63,9 +91,7 @@
             android:layout_marginRight="20dp"
             android:background="#2a3774"
             android:drawableTop="@drawable/birds_seen"
-            android:focusableInTouchMode="true"
             android:gravity="center_vertical|center_horizontal|bottom"
-            android:longClickable="true"
             android:paddingBottom="5dp"
             android:paddingTop="32dp"
             android:text="@string/birds_seen_icon"
@@ -79,11 +105,7 @@
             android:layout_height="130dp"
             android:background="#b94b2d"
             android:drawableTop="@drawable/birds_to_see"
-            android:focusableInTouchMode="true"
             android:gravity="center_vertical|center_horizontal|bottom"
-            android:longClickable="true"
-            android:minHeight="60dip"
-            android:minWidth="60dip"
             android:paddingBottom="5dp"
             android:paddingTop="44dp"
             android:text="@string/wishlist_icon"
@@ -92,23 +114,26 @@
             android:typeface="sans" />
     </TableRow>
 
-    <Button
-        android:id="@+id/map_view_icon"
-        android:layout_width="match_parent"
-        android:layout_height="130dp"
-        android:layout_gravity="center_vertical"
-        android:background="#486b14"
-        android:drawableTop="@drawable/pin"
-        android:focusableInTouchMode="true"
-        android:gravity="center_vertical|center_horizontal|bottom"
-        android:longClickable="true"
-        android:minHeight="60dip"
-        android:minWidth="60dip"
-        android:paddingBottom="5dp"
-        android:paddingTop="32dp"
-        android:text="@string/map_view_icon"
-        android:textColor="#ffffff"
-        android:textSize="16sp"
-        android:typeface="sans" />
+    <TableRow
+        android:id="@+id/tableRow3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/map_view_icon"
+            android:layout_width="match_parent"
+            android:layout_span="2"
+            android:layout_height="130dp"
+            android:background="#486b14"
+            android:drawableTop="@drawable/pin"
+            android:gravity="center_vertical|center_horizontal|bottom"
+            android:paddingBottom="5dp"
+            android:paddingTop="32dp"
+            android:text="@string/map_view_icon"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            android:typeface="sans" />
+
+    </TableRow>
 
 </TableLayout>

@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -22,6 +23,7 @@ public class Wishlist extends ListActivity {
 	
 	private List<Bird> birds;
 	boolean isWishlist;
+	boolean wishAtoZ = false;
 	
 	// create reference to database
 	BirdsDataSource datasource;
@@ -42,10 +44,23 @@ public class Wishlist extends ListActivity {
 		
 		isWishlist = true;
 		
-		refreshDisplay();
+		ImageButton atoz = (ImageButton) findViewById(R.id.wish_atoz);
+		atoz.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				if (!wishAtoZ) {
+					birds = datasource.wishAtoZ();
+					refreshDisplay();
+					wishAtoZ = true;
+				} 
+				else {
+					birds = datasource.findWishList();
+					refreshDisplay();
+					wishAtoZ = false;
+				}
+			}
+		});
 		
-		ArrayAdapter<Bird> adapter = new CustomBaseAdapter(this, birds);
-		setListAdapter(adapter);
+		refreshDisplay();
 	}
 	
 	public void refreshDisplay() {
@@ -93,7 +108,7 @@ public class Wishlist extends ListActivity {
 
 		Toast toast = Toast.makeText(this,
 				"There are no birds on this list yet",
-				Toast.LENGTH_LONG);
+				Toast.LENGTH_SHORT);
 		toast.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL,
 				0, 0);
 		toast.show();
