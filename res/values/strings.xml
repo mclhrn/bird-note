@@ -10,8 +10,6 @@
     <string name="map_view_icon">Map View</string>
     <string name="logo_img">Bird Note Logo</string>
     <string name="icon">Icon</string>
-    <string name="size_template">Size: %d</string>
-    <string name="listSeparatorTextViewStyle">%d</string>
     <string name="image">Image thumbnail</string>
     <string name="search">Test</string>
     <string name="toggle">Toggle</string>
@@ -23,7 +21,8 @@
     <string name="search_results_title">Search Results</string>
     <string name="empty"></string>
     <string name="main_image">Main Image</string>
-     <string name="atoz">Toggle A to Z</string>
+    <string name="atoz">Toggle A to Z</string>
+    <string name="hello_world">Hello world!</string>
     
     <!-- Search Screen Drop Down Labels  -->
     <string name="primary_colour">Primary Colour</string>
@@ -37,5 +36,15 @@
     <!-- Menu Items  -->
     <string name="add_to_seen">Add to Birds Seen List</string>
     <string name="add_to_wishlist">Add to Wishlist</string>
+    <string name="share_sighting">Share Sighting</string>
     <string name="delete">Remove bird from List</string>
+    
+    <!-- Profile Sub Headings  -->
+    <string name="status_sub_head">Status</string>
+    <string name="identification_sub_head">Identification</string>
+    <string name="diet_sub_head">Diet</string>
+    <string name="breeding_sub_head">Breeding</string>
+    <string name="wintering_habits_sub_head">Wintering Habits</string>
+    <string name="where_to_see_sub_head">Where to See</string>
+    <string name="conservation_status_sub_head">Conservation Status</string>
 </resources>

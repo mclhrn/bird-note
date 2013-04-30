@@ -31,7 +31,7 @@ public class CustomBaseAdapter extends ArrayAdapter<Bird> {
 	
         Bird bird = birds.get(position);
         
-        TextView tv = (TextView) view.findViewById(R.id.name);
+        TextView tv = (TextView) view.findViewById(R.id.list_item_name);
         tv.setText(bird.getName());
 
         tv = (TextView) view.findViewById(R.id.latin);

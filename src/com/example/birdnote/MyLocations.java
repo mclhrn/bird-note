@@ -50,7 +50,6 @@ public class MyLocations extends Activity {
 		map.addMarker(new MarkerOptions().position(CURRENT_LOC).title(
 				"You are here"));
 
-		// Move the camera instantly to hamburg with a zoom of 17.
 		map.moveCamera(CameraUpdateFactory.newLatLngZoom(CURRENT_LOC, 17));
 
 		// Zoom in, animating the camera.

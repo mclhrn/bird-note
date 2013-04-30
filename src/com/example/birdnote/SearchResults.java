@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.birdnote.db.BirdsDBOpenHelper;
 import com.example.birdnote.db.BirdsDataSource;
@@ -86,6 +87,9 @@ public class SearchResults extends ListActivity {
 				}
 			}
 		});
+		
+		TextView searchResults = (TextView) findViewById(R.id.num_results);
+		searchResults.setText(birds.size() + " birds");
 		
 		refreshDisplay();
 	}

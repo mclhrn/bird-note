@@ -21,12 +21,13 @@
         android:orientation="vertical" >
 
         <TextView
-            android:id="@+id/name"
+            android:id="@+id/list_item_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="10dp"
             android:textColor="#000000"
-            android:textSize="20sp" />
+            android:textSize="20sp" 
+            android:textIsSelectable="false" />
 
         <TextView
             android:id="@+id/latin"
@@ -34,7 +35,8 @@
             android:layout_height="wrap_content"
             android:textColor="#666666"
             android:textSize="16sp"
-            android:textStyle="italic" />
+            android:textStyle="italic" 
+            android:textIsSelectable="false" />
     </LinearLayout>
 
 </LinearLayout>

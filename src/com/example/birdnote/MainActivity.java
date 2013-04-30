@@ -1,6 +1,5 @@
 package com.example.birdnote;
 
-import com.example.birdnote.R;
 import com.example.birdnote.services.MyLocation;
 import com.example.birdnote.services.MyLocation.LocationResult;
 import android.app.Activity;

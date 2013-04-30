@@ -113,17 +113,37 @@ public class ReferenceGuide extends ListActivity implements TextWatcher {
 
 	@Override
 	public void afterTextChanged(Editable s) {
-		ReferenceGuide.this.adapter.getFilter().filter(s);
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
 	public void beforeTextChanged(CharSequence s, int start, int count,
 			int after) {
 		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
 	public void onTextChanged(CharSequence s, int start, int before, int count) {
-		//adapter.getFilter().filter(birds.toString().toLowerCase());
+		adapter.getFilter().filter(s.toString());
 	}
+
+//	@Override
+//	public void afterTextChanged(Editable s) {
+//		ReferenceGuide.this.adapter.getFilter().filter(s);
+//	}
+//
+//	@Override
+//	public void beforeTextChanged(CharSequence s, int start, int count,
+//			int after) {
+//		// TODO Auto-generated method stub
+//	}
+//
+//	@Override
+//	public void onTextChanged(CharSequence s, int start, int before, int count) {
+//		adapter.getFilter().filter(s); //Filter from my adapter
+//
+//		adapter.notifyDataSetChanged(); //Update my view
+//	}
 }

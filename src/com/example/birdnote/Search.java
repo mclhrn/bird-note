@@ -2,7 +2,6 @@ package com.example.birdnote;
 
 import java.util.List;
 
-import com.example.birdnote.R;
 import com.example.birdnote.db.BirdsDataSource;
 import com.example.birdnote.db.IdentifyDataSource;
 import com.example.birdnote.model.BillLength;

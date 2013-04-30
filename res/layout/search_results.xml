@@ -38,20 +38,32 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical" >
+        android:orientation="horizontal" 
+        android:background="#1d1e24">
 
         <TextView
             android:id="@+id/textView3"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginTop="7dp"
-            android:background="#1d1e24"
-            android:paddingBottom="6dp"
+            android:layout_gravity="center_vertical"
             android:paddingLeft="20dp"
             android:paddingTop="6dp"
             android:text="@string/search_results_title"
             android:textColor="#ffffff"
             android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/num_results"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="right"
+            android:paddingBottom="6dp"
+            android:paddingRight="20dp"
+            android:paddingTop="6dp"
+            android:text="@string/empty"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+        
     </LinearLayout>
 
     <ListView

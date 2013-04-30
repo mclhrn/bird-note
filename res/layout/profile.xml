@@ -21,7 +21,7 @@
             <TextView
                 android:id="@+id/div_bar_1"
                 android:layout_width="10dp"
-                android:layout_height="70dp"
+                android:layout_height="match_parent"
                 android:layout_marginTop="-8dp"
                 android:background="#e19132"
                 android:text="@string/empty" />
@@ -74,12 +74,12 @@
             android:text="@string/empty" />
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/status_sub_head"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
-            android:text="Status"
+            android:text="@string/status_sub_head"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -87,15 +87,16 @@
             android:id="@+id/status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textIsSelectable="false" />
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/identification_sub_head"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
-            android:text="Identification"
+            android:text="@string/identification_sub_head"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -103,15 +104,16 @@
             android:id="@+id/identification"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textIsSelectable="false" />
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/diet_sub_head"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
-            android:text="Diet"
+            android:text="@string/diet_sub_head"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -119,15 +121,16 @@
             android:id="@+id/diet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textIsSelectable="false" />
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/breeding_sub_head"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
-            android:text="Breeding"
+            android:text="@string/breeding_sub_head"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -135,15 +138,16 @@
             android:id="@+id/breeding"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textIsSelectable="false" />
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/wintering_habits_sub_head"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
-            android:text="Wintering Habits"
+            android:text="@string/wintering_habits_sub_head"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -151,15 +155,16 @@
             android:id="@+id/wintering_habits"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textIsSelectable="false" />
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/where_to_see_sub_head"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
-            android:text="Where to See"
+            android:text="@string/where_to_see_sub_head"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -167,15 +172,16 @@
             android:id="@+id/where_to_see"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textIsSelectable="false" />
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/conservation_status_sub_head"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
-            android:text="Conservation Status"
+            android:text="@string/conservation_status_sub_head"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -183,7 +189,8 @@
             android:id="@+id/conservation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textIsSelectable="false" />
 
         <TextView
             android:id="@+id/div_bar_4"
