@@ -1,19 +1,32 @@
 package com.example.birdnote;
 
-import java.util.ArrayList;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 
-import org.apache.http.NameValuePair;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
+import org.apache.http.util.EntityUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
 
+import com.example.birdnote.connections.ConnectionDetector;
 import com.example.birdnote.db.BirdsDataSource;
 import com.example.birdnote.model.Bird;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -31,10 +44,18 @@ public class Profile extends Activity {
 	BirdsDataSource datasource;
 	boolean isBirdsSeen;
 	boolean isWishlist;
-	String url;
 	
+	// flag for Internet connection status
+    Boolean isInternetPresent = false;
+     
+    // Connection detector class
+    ConnectionDetector cd;
+	
+    String myurl = 	"http://birdnote.herokuapp.com/sightings";
+
 	private static final String LOGTAG = "Birds";
 
+	@SuppressLint("UseValueOf")
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.profile);
@@ -47,11 +68,14 @@ public class Profile extends Activity {
 
 		datasource = new BirdsDataSource(this);
 		datasource.open();
-		
-		url = "www.birdnote.heroku.com/";
 
+		cd = new ConnectionDetector(getApplicationContext());
+		
 		refreshDisplay();
 	}
+
+	
+	
 
 	protected void onResume() {
 		super.onResume();
@@ -132,8 +156,31 @@ public class Profile extends Activity {
 				toast.setGravity(Gravity.CENTER_VERTICAL
 						| Gravity.CENTER_HORIZONTAL, 0, 0);
 				toast.show();
-				// HTTP Post list item
-				new UpdateRemoteList().execute();
+
+
+//				 // get Internet status
+//                isInternetPresent = cd.isConnectingToInternet();
+// 
+//                // check for Internet status
+//                if (isInternetPresent) {
+//                    // Internet Connection is Present
+//                    // make HTTP requests
+//                	
+//                } else {
+//                    // Internet connection is not present
+//                    // Ask user to connect to Internet
+//                    showAlertDialog(Profile.this, "No Internet Connection",
+//                            "You don't have internet connection.", false);
+//                }
+				
+				
+				
+                new UpdateRemoteList().execute();
+				
+				
+				
+				
+				
 			} else {
 				Log.i(LOGTAG, "Bird not added");
 			}
@@ -193,39 +240,89 @@ public class Profile extends Activity {
 		sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
 		startActivity(Intent.createChooser(sharingIntent, "Share via"));
 	}
-
 	
+	@SuppressWarnings("deprecation")
+	public void showAlertDialog(Context context, String title, String message, Boolean status) {
+        AlertDialog alertDialog = new AlertDialog.Builder(context).create();
+ 
+        // Setting Dialog Title
+        alertDialog.setTitle(title);
+ 
+        // Setting Dialog Message
+        alertDialog.setMessage(message);
+         
+        //Setting alert dialog icon
+        alertDialog.setIcon((status) ? R.drawable.success : R.drawable.fail);
+ 
+        // Setting OK Button
+        alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
+ 
+        // Showing Alert Message
+        alertDialog.show();
+    }
+
 	// async inner class here
 	private class UpdateRemoteList extends AsyncTask<String, Void, Void> {
-		
-		ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-		private ProgressDialog Dialog = new ProgressDialog(Profile.this);
-		
-		protected void onPreExecute() {
-			Dialog.setMessage("Sending value..");
-			Dialog.show();
 
-			nameValuePairs.add(new BasicNameValuePair("longitude", Double.toString((MainActivity.LNG))));
-			nameValuePairs.add(new BasicNameValuePair("latitude", Double.toString((MainActivity.LAT))));
-			nameValuePairs.add(new BasicNameValuePair("bird_id", Integer.toString((int) bird.getId())));
+		//private ProgressDialog Dialog = new ProgressDialog(Profile.this);
+
+		protected void onPreExecute() {
+			Log.i(LOGTAG, "Starting Background Task!!!!!!!!!!!!!!!!");
+
 		}
 
 		protected Void doInBackground(String...urls) {
 			try {
-				HttpClient httpclient = new DefaultHttpClient();
-				HttpPost httppost = new HttpPost(url);
-				httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-				httpclient.execute(httppost);
+		        
+				URL url = new URL(myurl);
+				
+				JSONObject json = new JSONObject();
+		        json.put("longitude", new Double(MainActivity.LNG));
+		        json.put("latitude", new Double(MainActivity.LAT));
+		        json.put("user_id", 1);
+		        json.put("bird_id", new Integer((int) bird.getId()));
+		        
+		        HttpClient httpclient = new DefaultHttpClient();
+		        HttpParams myParams = new BasicHttpParams();
+		        HttpConnectionParams.setConnectionTimeout(myParams, 10000);
+		        HttpConnectionParams.setSoTimeout(myParams, 10000);
+		        
+		        try {
+		        	HttpPost httppost = new HttpPost(url.toString());
+		            httppost.setHeader("Accept", "application/json");		            
+		            httppost.setHeader("Content-type", "application/json");
+
+		            StringEntity se = new StringEntity(json.toString()); 
+		            httppost.setEntity(se); 
+
+		            HttpResponse response = httpclient.execute(httppost);
+		            String temp = EntityUtils.toString(response.getEntity());
+		            Log.i("tag", temp);
+		        } 
+		        catch (ClientProtocolException e) {
+
+		        } 
+		        catch (IOException e) {
+		        
+		        }
+		    } 
+			catch (JSONException e) {
+				e.printStackTrace();
+			} 
+			catch (MalformedURLException e) {
+				e.printStackTrace();
 			}
-			catch(Exception e){
-				Log.e("log_tag", "Error in http connection " + e.toString());
+			finally {
+				
 			}
-		return null;
+			return null;
 		}
 
 		protected void onPostExecute(Void unused) {
-			Dialog.dismiss();
-			Toast.makeText(getApplicationContext(), "Value updated", Toast.LENGTH_SHORT).show();
+			Log.i(LOGTAG, "Leaving Background Task!!!!!!!!!!!!!!!!");
 		}
 	}
 }
