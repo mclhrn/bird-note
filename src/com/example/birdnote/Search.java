@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.example.birdnote.db.BirdsDataSource;
 import com.example.birdnote.db.IdentifyDataSource;
+import com.example.birdnote.login.Register;
+import com.example.birdnote.login.Welcome;
 import com.example.birdnote.model.BillLength;
 import com.example.birdnote.model.Colour;
 import com.example.birdnote.model.TailShape;
@@ -74,6 +76,26 @@ public class Search extends Activity implements OnClickListener{
 		
 		// fill spinners
 		fillSpinners();
+		
+		
+		
+		 findViewById(R.id.testWelcome).setOnClickListener(
+			        new View.OnClickListener() {
+			            @Override
+			            public void onClick(View v) {
+			                // No account, load new account view
+			                Intent intent = new Intent(Search.this,
+			                    Welcome.class);
+			                startActivityForResult(intent, 0);
+			            }
+			        });
+		
+		
+		
+		
+		
+		
+		
 	}
 	
 	void fillSpinners() {

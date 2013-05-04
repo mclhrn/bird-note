@@ -47,4 +47,22 @@
     <string name="wintering_habits_sub_head">Wintering Habits</string>
     <string name="where_to_see_sub_head">Where to See</string>
     <string name="conservation_status_sub_head">Conservation Status</string>
+    
+    <!-- Welcome Activity  -->
+    <string name="welcome_title">Welcome to Bird Note</string>
+    <string name="welcome_text">Select an option below to start using it.</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+    <string name="title_activity_welcome">Welcome</string>
+    
+    <!-- Log in  -->
+    <string name="user_email">Email</string>
+    <string name="user_password">Password</string>
+    <string name="title_activity_login">Login</string>
+    
+    <!-- Register  -->
+    <string name="real_name">Name</string>
+    <string name="user_name">Username</string>
+    <string name="user_password_confirmation">Confirm Password</string>
+    <string name="title_activity_register">Register</string>
 </resources>

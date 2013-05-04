@@ -24,7 +24,6 @@ import com.example.birdnote.model.Bird;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -55,7 +54,6 @@ public class Profile extends Activity {
 
 	private static final String LOGTAG = "Birds";
 
-	@SuppressLint("UseValueOf")
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.profile);
@@ -274,6 +272,7 @@ public class Profile extends Activity {
 
 		}
 
+		@SuppressLint("UseValueOf")
 		protected Void doInBackground(String...urls) {
 			try {
 		        
@@ -319,10 +318,6 @@ public class Profile extends Activity {
 				
 			}
 			return null;
-		}
-
-		protected void onPostExecute(Void unused) {
-			Log.i(LOGTAG, "Leaving Background Task!!!!!!!!!!!!!!!!");
 		}
 	}
 }

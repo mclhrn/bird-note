@@ -7,17 +7,20 @@
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="17" />
-    
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
-	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-	<permission
+
+    <permission
         android:name="com.example.birdnote.permission.MAPS_RECEIVE"
         android:protectionLevel="signature" />
-	<uses-permission android:name="com.example.birdnote.permission.MAPS_RECEIVE" />
+
+    <uses-permission android:name="com.example.birdnote.permission.MAPS_RECEIVE" />
+
     <uses-feature
         android:glEsVersion="0x00020000"
         android:required="true" />
@@ -36,6 +39,23 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.birdnote.login.Welcome"
+            android:noHistory="true"
+            android:screenOrientation="portrait" >
+		</activity>
+        <activity
+            android:name="com.example.birdnote.login.Register"
+            android:label="@string/title_activity_register"
+            android:noHistory="true"
+            android:screenOrientation="portrait" >
+		</activity>
+        <activity
+            android:name="com.example.birdnote.login.Login"
+            android:label="@string/title_activity_login"
+            android:noHistory="true"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="ReferenceGuide"
@@ -67,7 +87,7 @@
         </activity>
         <activity
             android:name="SearchResults"
-            android:screenOrientation="portrait" 
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
         </activity>
 

@@ -37,6 +37,9 @@ public class ReferenceGuide extends ListActivity implements TextWatcher {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.reference_guide);
 
+		ListView lv = (ListView) findViewById(android.R.id.list);
+		lv.setTextFilterEnabled(true);
+		
 		inputSearch = (EditText) findViewById(R.id.ref_input_search);
 		inputSearch.addTextChangedListener(this);
 		
@@ -51,6 +54,7 @@ public class ReferenceGuide extends ListActivity implements TextWatcher {
 			birds = datasource.findAll();
 		}
 
+		// Toggle display a to z or z to a
 		ImageButton atoz = (ImageButton) findViewById(R.id.ref_atoz);
 		atoz.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
@@ -103,7 +107,7 @@ public class ReferenceGuide extends ListActivity implements TextWatcher {
 		super.onListItemClick(l, v, position, id);
 
 		Bird bird = birds.get(position);
-
+		
 		Intent intent = new Intent(this, Profile.class);
 		intent.putExtra("com.example.birdnote.model.Bird", bird);
 		intent.putExtra("isBirdsSeen", isBirdsSeen);
@@ -114,36 +118,18 @@ public class ReferenceGuide extends ListActivity implements TextWatcher {
 	@Override
 	public void afterTextChanged(Editable s) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
-	public void beforeTextChanged(CharSequence s, int start, int count,
-			int after) {
+	public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
-	public void onTextChanged(CharSequence s, int start, int before, int count) {
-		adapter.getFilter().filter(s.toString());
+	public void onTextChanged(CharSequence cs, int start, int before, int count) {
+		if (count < before) {
+			((CustomBaseAdapter) adapter).resetData();
+		}
+		adapter.getFilter().filter(cs.toString());   
 	}
-
-//	@Override
-//	public void afterTextChanged(Editable s) {
-//		ReferenceGuide.this.adapter.getFilter().filter(s);
-//	}
-//
-//	@Override
-//	public void beforeTextChanged(CharSequence s, int start, int count,
-//			int after) {
-//		// TODO Auto-generated method stub
-//	}
-//
-//	@Override
-//	public void onTextChanged(CharSequence s, int start, int before, int count) {
-//		adapter.getFilter().filter(s); //Filter from my adapter
-//
-//		adapter.notifyDataSetChanged(); //Update my view
-//	}
 }
