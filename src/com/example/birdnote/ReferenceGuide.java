@@ -103,9 +103,9 @@ public class ReferenceGuide extends ListActivity implements TextWatcher {
 	}
 
 	@Override
-	protected void onListItemClick(ListView l, View v, int position, long id) {
-		super.onListItemClick(l, v, position, id);
-
+	protected void onListItemClick(ListView lv, View v, int position, long id) {
+		//super.onListItemClick(l, v, position, id);
+		
 		Bird bird = birds.get(position);
 		
 		Intent intent = new Intent(this, Profile.class);
@@ -114,6 +114,7 @@ public class ReferenceGuide extends ListActivity implements TextWatcher {
 
 		startActivity(intent);
 	}
+	
 
 	@Override
 	public void afterTextChanged(Editable s) {

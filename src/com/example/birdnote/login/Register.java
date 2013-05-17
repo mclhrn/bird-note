@@ -16,14 +16,10 @@ import org.apache.http.params.HttpParams;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import com.example.birdnote.R;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -35,15 +31,20 @@ import android.widget.Toast;
 
 public class Register extends Activity {
 
-	private final static String REGISTER_ENDPOINT_URL = "http://birdnote.heroku.com/users";
 	private SharedPreferences mPreferences;
+	public static final String USERID = "ID";
+	public static final String PASSWORD = "PASSWORD";
+	
 	private String mRealName;
 	private String mUserEmail;
 	private String mUserName;
 	private String mUserPassword;
 	private String mUserPasswordConfirmation;
-	String myurl = "http://birdnote.herokuapp.com/users";
-	Boolean value;
+	private String myurl = "http://birdnote.herokuapp.com/app_registration";
+	private JSONObject json = new JSONObject();
+	private JSONObject jsonResponse;
+	private ProgressDialog dialog;
+	private Boolean value;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -84,7 +85,6 @@ public class Register extends Activity {
 			} else {
 				// everything is ok!
 				RegisterTask registerTask = new RegisterTask();
-				// registerTask.setMessageLoading("Registering new account...");
 				registerTask.execute();
 			}
 		}
@@ -93,15 +93,13 @@ public class Register extends Activity {
 	// async inner class here
 	private class RegisterTask extends AsyncTask<String, Void, Boolean> {
 
-		private ProgressDialog dialog;
-		
 		@Override
 		protected void onPreExecute() {
-		    super.onPreExecute();
+			super.onPreExecute();
 
-		     dialog = ProgressDialog.show(Register.this, "", 
-		            "Creating account...", true);
-		     dialog.show();
+			dialog = ProgressDialog.show(Register.this, "",
+					"Creating account...", true);
+			dialog.show();
 		}
 
 		@Override
@@ -110,7 +108,6 @@ public class Register extends Activity {
 
 				URL url = new URL(myurl);
 
-				JSONObject json = new JSONObject();
 				json.put("name", mRealName);
 				json.put("email", mUserEmail);
 				json.put("nickname", mUserName);
@@ -129,9 +126,13 @@ public class Register extends Activity {
 
 					StringEntity se = new StringEntity(json.toString());
 					httppost.setEntity(se);
-
 					HttpResponse response = httpclient.execute(httppost);
+					
 					String temp = EntityUtils.toString(response.getEntity());
+					jsonResponse = new JSONObject(temp);
+					
+					System.out.println(jsonResponse.toString());
+					
 					Log.i("tag", temp);
 					value = true;
 				} catch (ClientProtocolException e) {
@@ -148,132 +149,41 @@ public class Register extends Activity {
 			}
 			return value;
 		}
-		
+
 		@Override
 		protected void onPostExecute(Boolean value) {
-			// launch the Login and close this one
-			Toast.makeText(
-					Register.this,
-					"Account Created",
-					Toast.LENGTH_LONG).show();
+
+			dialog.dismiss();
+			try {
+				if (jsonResponse.has("id")) {
+					// everything is ok
+					SharedPreferences.Editor editor = mPreferences.edit();
+					// save the returned password and id into the SharedPreferences
+					
+					editor.putString(USERID, jsonResponse.getString("id"));
+					editor.putString(PASSWORD,
+							jsonResponse.getString("password_digest"));
+					editor.commit();
+				}
+				else
+					System.out.println("Something went wrong!");
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+
+			System.out.println(mPreferences.getString(PASSWORD, "Not Found"));
+			System.out.println(mPreferences.getString(USERID, "Not Found"));
+
+			Toast.makeText(Register.this, "Account Created", Toast.LENGTH_SHORT)
+					.show();
 			if (value) {
-				Intent intent = new Intent(getApplicationContext(),
-						Login.class);
+				Intent intent = new Intent(getApplicationContext(), Login.class);
 				startActivity(intent);
 				finish();
-			}
-			else 
-				showAlertDialog(Register.this, "No Internet Connection",
-                      "You don't have internet connection.", false);
+			} else
+				Toast.makeText(Register.this,
+						"You don't have internet connection", Toast.LENGTH_LONG)
+						.show();
 		}
-		
-		@SuppressWarnings("deprecation")
-		public void showAlertDialog(Context context, String title, String message, Boolean status) {
-	        AlertDialog alertDialog = new AlertDialog.Builder(context).create();
-	 
-	        // Setting Dialog Title
-	        alertDialog.setTitle(title);
-	 
-	        // Setting Dialog Message
-	        alertDialog.setMessage(message);
-	         
-	        //Setting alert dialog icon
-	        alertDialog.setIcon((status) ? R.drawable.success : R.drawable.fail);
-	 
-	        // Setting OK Button
-	        alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
-	            public void onClick(DialogInterface dialog, int which) {
-	            }
-	        });
-	 
-	        // Showing Alert Message
-	        alertDialog.show();
-	    }
 	}
-
-	// private class RegisterTask extends AsyncTask<Void, Void, Object> {
-	//
-	// @SuppressWarnings("unused")
-	// protected JSONObject doInBackground(Object... params) {
-	// DefaultHttpClient client = new DefaultHttpClient();
-	// HttpPost post = new HttpPost(REGISTER_ENDPOINT_URL);
-	// JSONObject holder = new JSONObject();
-	// JSONObject userObj = new JSONObject();
-	// String response = null;
-	// JSONObject json = new JSONObject();
-	//
-	// try {
-	// try {
-	// // setup the returned values in case
-	// // something goes wrong
-	// json.put("success", false);
-	// json.put("info", "Something went wrong. Retry!");
-	//
-	// // add the users's info to the post params
-	// userObj.put("name", mRealName);
-	// userObj.put("email", mUserEmail);
-	// userObj.put("nickname", mUserName);
-	// userObj.put("password", mUserPassword);
-	// userObj.put("password_confirmation", mUserPasswordConfirmation);
-	// holder.put("user", userObj);
-	// StringEntity se = new StringEntity(holder.toString());
-	// post.setEntity(se);
-	//
-	// // setup the request headers
-	// post.setHeader("Accept", "application/json");
-	// post.setHeader("Content-Type", "application/json");
-	//
-	// ResponseHandler<String> responseHandler = new BasicResponseHandler();
-	// response = client.execute(post, responseHandler);
-	// json = new JSONObject(response);
-	//
-	// } catch (HttpResponseException e) {
-	// e.printStackTrace();
-	// Log.e("ClientProtocol", "" + e);
-	// } catch (IOException e) {
-	// e.printStackTrace();
-	// Log.e("IO", "" + e);
-	// }
-	// } catch (JSONException e) {
-	// e.printStackTrace();
-	// Log.e("JSON", "" + e);
-	// }
-	//
-	// return json;
-	// }
-	//
-	// @SuppressWarnings("unused")
-	// protected void onPostExecute(JSONObject json) {
-	// try {
-	// if (json.getBoolean("success")) {
-	// // everything is ok
-	// SharedPreferences.Editor editor = mPreferences.edit();
-	// // save the returned auth_token into
-	// // the SharedPreferences
-	// editor.putString("AuthToken",
-	// json.getJSONObject("data").getString("auth_token"));
-	// editor.commit();
-	//
-	// // launch the HomeActivity and close this one
-	// Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-	// startActivity(intent);
-	// finish();
-	// }
-	// Toast.makeText(Register.this, json.getString("info"),
-	// Toast.LENGTH_LONG).show();
-	// } catch (Exception e) {
-	// // something went wrong: show a Toast
-	// // with the exception message
-	// Toast.makeText(Register.this, e.getMessage(), Toast.LENGTH_LONG).show();
-	// } finally {
-	// super.onPostExecute(json);
-	// }
-	// }
-	//
-	// @Override
-	// protected Object doInBackground(Void... params) {
-	// // TODO Auto-generated method stub
-	// return null;
-	// }
-	// }
 }

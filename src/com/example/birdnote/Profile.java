@@ -17,8 +17,8 @@ import org.apache.http.util.EntityUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.example.birdnote.connections.ConnectionDetector;
 import com.example.birdnote.db.BirdsDataSource;
+import com.example.birdnote.login.Register;
 import com.example.birdnote.model.Bird;
 
 import android.annotation.SuppressLint;
@@ -27,6 +27,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -43,13 +44,9 @@ public class Profile extends Activity {
 	BirdsDataSource datasource;
 	boolean isBirdsSeen;
 	boolean isWishlist;
+	private SharedPreferences mPreferences;
 	
-	// flag for Internet connection status
-    Boolean isInternetPresent = false;
-     
-    // Connection detector class
-    ConnectionDetector cd;
-	
+	String myid;
     String myurl = 	"http://birdnote.herokuapp.com/sightings";
 
 	private static final String LOGTAG = "Birds";
@@ -66,14 +63,13 @@ public class Profile extends Activity {
 
 		datasource = new BirdsDataSource(this);
 		datasource.open();
-
-		cd = new ConnectionDetector(getApplicationContext());
+		
+		mPreferences = getSharedPreferences("CurrentUser", MODE_PRIVATE);
+		System.out.println(mPreferences.getString(Register.PASSWORD, "Not Found"));
+		myid = mPreferences.getString(Register.USERID, "Not Found");
 		
 		refreshDisplay();
 	}
-
-	
-	
 
 	protected void onResume() {
 		super.onResume();
@@ -154,31 +150,7 @@ public class Profile extends Activity {
 				toast.setGravity(Gravity.CENTER_VERTICAL
 						| Gravity.CENTER_HORIZONTAL, 0, 0);
 				toast.show();
-
-
-//				 // get Internet status
-//                isInternetPresent = cd.isConnectingToInternet();
-// 
-//                // check for Internet status
-//                if (isInternetPresent) {
-//                    // Internet Connection is Present
-//                    // make HTTP requests
-//                	
-//                } else {
-//                    // Internet connection is not present
-//                    // Ask user to connect to Internet
-//                    showAlertDialog(Profile.this, "No Internet Connection",
-//                            "You don't have internet connection.", false);
-//                }
-				
-				
-				
-                new UpdateRemoteList().execute();
-				
-				
-				
-				
-				
+				new UpdateRemoteList().execute();
 			} else {
 				Log.i(LOGTAG, "Bird not added");
 			}
@@ -209,6 +181,7 @@ public class Profile extends Activity {
 					toast.show();
 
 					// async http delete here
+//					new DeleteRemoteListItem().execute();
 
 					finish();
 				}
@@ -238,39 +211,9 @@ public class Profile extends Activity {
 		sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
 		startActivity(Intent.createChooser(sharingIntent, "Share via"));
 	}
-	
-	@SuppressWarnings("deprecation")
-	public void showAlertDialog(Context context, String title, String message, Boolean status) {
-        AlertDialog alertDialog = new AlertDialog.Builder(context).create();
- 
-        // Setting Dialog Title
-        alertDialog.setTitle(title);
- 
-        // Setting Dialog Message
-        alertDialog.setMessage(message);
-         
-        //Setting alert dialog icon
-        alertDialog.setIcon((status) ? R.drawable.success : R.drawable.fail);
- 
-        // Setting OK Button
-        alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-            }
-        });
- 
-        // Showing Alert Message
-        alertDialog.show();
-    }
 
 	// async inner class here
 	private class UpdateRemoteList extends AsyncTask<String, Void, Void> {
-
-		//private ProgressDialog Dialog = new ProgressDialog(Profile.this);
-
-		protected void onPreExecute() {
-			Log.i(LOGTAG, "Starting Background Task!!!!!!!!!!!!!!!!");
-
-		}
 
 		@SuppressLint("UseValueOf")
 		protected Void doInBackground(String...urls) {
@@ -281,8 +224,8 @@ public class Profile extends Activity {
 				JSONObject json = new JSONObject();
 		        json.put("longitude", new Double(MainActivity.LNG));
 		        json.put("latitude", new Double(MainActivity.LAT));
-		        json.put("user_id", 1);
-		        json.put("bird_id", new Integer((int) bird.getId()));
+		        json.put("user_id", new String(myid));
+		        json.put("bird_id", new Long(bird.getId()));
 		        
 		        HttpClient httpclient = new DefaultHttpClient();
 		        HttpParams myParams = new BasicHttpParams();
@@ -320,4 +263,55 @@ public class Profile extends Activity {
 			return null;
 		}
 	}
+	
+//	private class DeleteRemoteListItem extends AsyncTask<String, Void, Void> {
+//
+//		@SuppressLint("UseValueOf")
+//		protected Void doInBackground(String...urls) {
+//			try {
+//		        
+//				URL url = new URL(myurl);
+//				
+//				JSONObject json = new JSONObject();
+//		        json.put("longitude", new Double(MainActivity.LNG));
+//		        json.put("latitude", new Double(MainActivity.LAT));
+//		        json.put("user_id", new String(myid));
+//		        json.put("bird_id", new Long(bird.getId()));
+//		        
+//		        HttpClient httpclient = new DefaultHttpClient();
+//		        HttpParams myParams = new BasicHttpParams();
+//		        HttpConnectionParams.setConnectionTimeout(myParams, 10000);
+//		        HttpConnectionParams.setSoTimeout(myParams, 10000);
+//		        
+//		        try {
+//		        	HttpPost httppost = new HttpPost(url.toString());
+//		            httppost.setHeader("Accept", "application/json");		            
+//		            httppost.setHeader("Content-type", "application/json");
+//
+//		            StringEntity se = new StringEntity(json.toString()); 
+//		            httppost.setEntity(se); 
+//
+//		            HttpResponse response = httpclient.execute(httppost);
+//		            String temp = EntityUtils.toString(response.getEntity());
+//		            Log.i("tag", temp);
+//		        } 
+//		        catch (ClientProtocolException e) {
+//
+//		        } 
+//		        catch (IOException e) {
+//		        
+//		        }
+//		    } 
+//			catch (JSONException e) {
+//				e.printStackTrace();
+//			} 
+//			catch (MalformedURLException e) {
+//				e.printStackTrace();
+//			}
+//			finally {
+//				
+//			}
+//			return null;
+//		}
+//	}
 }

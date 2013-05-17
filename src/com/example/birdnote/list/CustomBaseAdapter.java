@@ -112,8 +112,6 @@ public class CustomBaseAdapter extends ArrayAdapter<Bird> implements Filterable 
 		protected void publishResults(CharSequence constraint,
 				FilterResults results) {
 
-			//birds = (List<Bird>) results.values;
-			
 			// inform the adapter about the new list filtered
 			if (results.count == 0)
 				notifyDataSetInvalidated();

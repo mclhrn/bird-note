@@ -366,8 +366,22 @@ public class BirdsDataSource {
 				+ " rows in map view display");
 		return birdsSeenList;
 	}
+	/*
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 *  returns user search results 
+	 */
 	
-	// returns user search results 
 	public List<Bird> userSearch(long currentPrimaryColourId,
 			long currentSecondaryColourId, long currentCrownColourId,
 			long currentBillLengthId, long currentBillColourId,
